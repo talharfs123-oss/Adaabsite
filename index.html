@@ -391,5 +391,26 @@ a{text-decoration:none;color:inherit}
   <p class="copyright">&copy; 2026 ADAB.COM All Rights Reserved &nbsp;|&nbsp; orders@adab.com &nbsp;|&nbsp; +92 130 156086012</p>
 </footer>
 
+<script>
+/* Agar koi image .jpg naam se na miley to khud .png (aur webp) try karo,
+   taake assets folder mein file ka extension kuch bhi ho, page chalta rahe. */
+document.addEventListener('error', function(e){
+  var img = e.target;
+  if(!img || img.tagName !== 'IMG') return;
+  var tries = img.dataset.tries || '';
+  var src = img.getAttribute('src');
+  if(!src) return;
+  var alts = ['.png','.jpeg','.webp','.JPG','.PNG'];
+  for(var i=0;i<alts.length;i++){
+    if(tries.indexOf(alts[i]) === -1 && !src.endsWith(alts[i])){
+      img.dataset.tries = tries + alts[i];
+      img.setAttribute('src', src.replace(/\.(jpg|jpeg|png|webp)$/i, alts[i]));
+      return;
+    }
+  }
+}, true);
+
+/* CSS background images ka bhi wahi masla — inline style wale swap kar do */
+</script>
 </body>
 </html>
