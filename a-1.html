@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADAB — A-1 Signature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#26324e;--navy-band-1:#55648f;--navy-band-2:#34426a;--navy-band-3:#223056;
+  --ink:#1a1a1a;--paper:#ffffff;
+  --font-display:"Bodoni Moda","Times New Roman",serif;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --maxw:1500px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-serif);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.header{display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,4vw,64px);background:#fff;position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;line-height:0}
+.logo img{height:clamp(38px,4.6vw,58px);width:auto}
+.mainnav{display:flex;gap:clamp(18px,2.6vw,38px);font-family:var(--font-serif);font-weight:600;font-size:15px;letter-spacing:.18em;color:var(--navy)}
+.mainnav a{position:relative;padding:4px 0}
+.mainnav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--navy);transition:width .3s}
+.mainnav a:hover::after,.mainnav a.on::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)}
+.inquire{border:1px solid var(--navy);color:var(--navy);font-family:var(--font-serif);font-weight:600;font-size:15px;letter-spacing:0.12em;padding:9px 26px;border-radius:999px;transition:background .3s,color .3s}
+.inquire:hover{background:var(--navy);color:#fff}
+.burger{display:flex;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:34px;height:2px;background:var(--navy)}
+#mob{display:none;flex-direction:column;gap:14px;padding:18px clamp(20px,4vw,64px);border-top:1px solid #eceef2;background:#fff}
+#mob.open{display:flex}
+#mob a{font-family:var(--font-serif);font-weight:600;letter-spacing:.18em;color:var(--navy);font-size:16px}
+@media(max-width:860px){.mainnav{display:none}}
+.hero{width:100%}
+.hero img{width:100%;height:auto}
+.legacy{position:relative;overflow:hidden;padding:clamp(34px,5vw,64px) 20px;background:radial-gradient(120% 150% at 50% 38%, var(--navy-band-1) 0%, var(--navy-band-2) 46%, var(--navy-band-3) 100%)}
+.legacy .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:clamp(24px,4vw,60px)}
+.legacy .inner::before,.legacy .inner::after{content:"";height:1px;flex:0 0 clamp(60px,10vw,190px);background:rgba(255,255,255,.5)}
+.legacy h2{font-family:var(--font-display);font-weight:600;font-variant-caps:small-caps;font-size:clamp(30px,5.4vw,76px);line-height:1;letter-spacing:0.04em;color:#fff;white-space:nowrap}
+.gallery{max-width:var(--maxw);margin:0 auto;padding:clamp(16px,2.4vw,26px) clamp(14px,2.4vw,34px);display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.gallery .cell{overflow:hidden;border-radius:6px}
+.gallery .cell img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.gallery .cell:hover img{transform:scale(1.04)}
+.col-left{display:grid;grid-template-rows:auto auto;gap:16px}
+.col-left .big{aspect-ratio:16/11}
+.thumbs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.thumbs .cell{aspect-ratio:3/4}
+.col-right{display:grid}
+.col-right .cell{height:100%}
+.legacy-banner{position:relative;width:100%;margin-top:clamp(18px,2.4vw,30px)}
+.legacy-banner img{width:100%;height:auto;display:block}
+.notify{position:absolute;left:clamp(20px,4vw,64px);bottom:clamp(24px,5vw,64px);display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--navy);font-family:var(--font-serif);font-weight:600;font-size:clamp(16px,1.6vw,21px);letter-spacing:0.14em;text-transform:uppercase;padding:14px 40px;border-radius:999px;box-shadow:0 14px 40px rgba(0,0,0,.35);transition:transform .3s,box-shadow .3s}
+.notify:hover{transform:translateY(-2px);box-shadow:0 20px 52px rgba(0,0,0,.45)}
+.crosslink{max-width:var(--maxw);margin:clamp(30px,4vw,50px) auto 0;padding:0 clamp(14px,2.4vw,34px)}
+.crosslink a{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid var(--navy);border-radius:10px;padding:clamp(22px,3vw,34px) clamp(24px,4vw,44px);transition:background .3s,color .3s}
+.crosslink a:hover{background:var(--navy);color:#fff}
+.crosslink b{font-family:var(--font-display);font-size:clamp(24px,3vw,38px);font-weight:700;letter-spacing:.05em}
+.crosslink i{font-style:normal;font-size:13.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+.crosslink span{font-size:14px;letter-spacing:.16em;text-transform:uppercase}
+.footer{border-top:1px solid #eceef2;padding:clamp(40px,5vw,70px) clamp(20px,4vw,64px) 0;margin-top:clamp(30px,4vw,50px)}
+.foot-grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1.2fr 1.5fr;gap:clamp(24px,4vw,64px);align-items:start}
+.foot-logo{line-height:0}
+.foot-logo img{height:clamp(44px,4.4vw,64px);width:auto}
+.foot-col ul{list-style:none;display:grid;gap:11px}
+.foot-col a{font-family:var(--font-serif);font-size:16px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);position:relative;width:fit-content}
+.foot-col a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--navy);transition:width .3s}
+.foot-col a:hover::after{width:100%}
+.news h4{font-family:var(--font-serif);font-weight:700;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);margin-bottom:16px}
+.news .field{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--navy);padding-bottom:8px;margin-bottom:18px}
+.news input{flex:1;border:none;background:none;outline:none;font-family:var(--font-serif);font-style:italic;font-size:16px;letter-spacing:0.06em;color:var(--ink)}
+.news input::placeholder{color:#8b93a3}
+.news .field button{background:none;border:none;cursor:pointer;font-size:20px;color:var(--navy);transition:transform .3s}
+.news .field button:hover{transform:translateX(5px)}
+.news .social{display:flex;gap:34px}
+.news .social a{font-family:var(--font-serif);font-weight:600;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy)}
+.pay-row{max-width:var(--maxw);margin:clamp(32px,4vw,52px) auto 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-bottom:18px}
+.pay{height:26px;padding:0 8px;min-width:40px;display:grid;place-items:center;border:1px solid #e4e7ec;border-radius:5px;font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:8.5px;letter-spacing:.02em;color:#5a6172;background:#fff}
+.copyright{border-top:1px solid #eceef2;padding:16px 0 22px;text-align:center;font-family:var(--font-serif);font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#7c8395}
+@media(max-width:860px){.gallery{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr 1fr}.news{grid-column:1/-1}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}.header{padding:16px 20px}.inquire{padding:8px 18px;font-size:14px}.notify{padding:11px 28px;font-size:15px}.crosslink a{flex-direction:column;text-align:center}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a class="logo" href="index.html" aria-label="ADAB home"><img src="assets/a1/adab-logo.png" alt="ADAB"></a>
+  <nav class="mainnav">
+    <a href="index.html">HOME</a>
+    <a href="a-1.html" class="on">A-1</a>
+    <a href="t-1.html">T-1</a>
+  </nav>
+  <div class="nav-right">
+    <a class="inquire" href="#">INQUIRE</a>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('mob').classList.toggle('open')"><span></span><span></span></button>
+  </div>
+</header>
+
+<div id="mob">
+  <a href="index.html">HOME</a>
+  <a href="a-1.html">A-1 COLLECTION</a>
+  <a href="t-1.html">T-1 COLLECTION</a>
+  <a href="#">INQUIRE</a>
+</div>
+
+<section class="hero">
+  <img src="assets/a1/hero.jpg" alt="ADAB A-1 — Signature Collection">
+</section>
+
+<section class="legacy">
+  <div class="inner"><h2>The A-1 Line.</h2></div>
+</section>
+
+<section class="gallery">
+  <div class="col-left">
+    <div class="cell big"><img src="assets/a1/gal-left.jpg" alt="Afridi Wear look"></div>
+    <div class="thumbs">
+      <div class="cell"><img src="assets/a1/gal-t1.jpg" alt="Afridi Wear detail"></div>
+      <div class="cell"><img src="assets/a1/gal-t2.jpg" alt="Afridi Wear detail"></div>
+      <div class="cell"><img src="assets/a1/gal-t3.jpg" alt="Afridi Wear detail"></div>
+    </div>
+  </div>
+  <div class="col-right">
+    <div class="cell"><img src="assets/a1/gal-right.jpg" alt="Afridi Wear full look"></div>
+  </div>
+</section>
+
+<section class="legacy-banner">
+  <img src="assets/a1/bottom-banner.jpg" alt="ADAB — A-1">
+  <a class="notify" href="#">Notify Me</a>
+</section>
+
+<div class="crosslink">
+  <a href="t-1.html">
+    <span style="display:flex;flex-direction:column;gap:6px">
+      <i>Next Collection</i><b>T-1</b>
+    </span>
+    <span>Explore T-1 &#8594;</span>
+  </a>
+</div>
+
+<footer class="footer">
+  <div class="foot-grid">
+    <div><div class="foot-logo"><img src="assets/a1/adab-logo.png" alt="ADAB"></div></div>
+    <div class="foot-col">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="a-1.html">A-1 Collection</a></li>
+        <li><a href="t-1.html">T-1 Collection</a></li>
+        <li><a href="#">Inquire</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <ul>
+        <li><a href="#">Shipping &amp; Returns</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="foot-col news">
+      <h4>Stay Updated</h4>
+      <div class="field">
+        <input type="email" placeholder="Enter your email">
+        <button type="button" aria-label="Subscribe">&#8594;</button>
+      </div>
+      <div class="social"><a href="#">Instagram</a><a href="#">Youtube</a></div>
+    </div>
+  </div>
+  <div class="pay-row">
+    <span class="pay">AMEX</span><span class="pay">APPLE</span><span class="pay">DISC</span>
+    <span class="pay">GPAY</span><span class="pay">JCB</span><span class="pay">MC</span>
+    <span class="pay">PAYPAL</span><span class="pay">VISA</span>
+  </div>
+  <p class="copyright">&copy; 2026 ADAB.COM All Rights Reserved &nbsp;|&nbsp; orders@adab.com &nbsp;|&nbsp; +92 130 156086012</p>
+</footer>
+
+</body>
+</html>

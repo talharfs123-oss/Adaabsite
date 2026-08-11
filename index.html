@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADAB — Premium Eastern Wear for Men</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#26324e;
+  --navy-soft:#3a486a;
+  --ink:#1a1a1a;
+  --paper:#ffffff;
+  --line:#c7ccd6;
+  --font-display:"Bodoni Moda","Times New Roman",serif;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --maxw:1500px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-serif);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ── HEADER ── */
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px clamp(20px,4vw,64px);
+  background:#fff;
+  position:sticky;top:0;z-index:50;
+}
+.logo{
+  display:flex;align-items:center;
+  line-height:0;
+}
+.logo img{
+  height:clamp(38px,4.6vw,58px);
+  width:auto;
+}
+.nav-right{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)}
+.inquire{
+  border:1px solid var(--navy);
+  color:var(--navy);
+  font-family:var(--font-serif);
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:0.12em;
+  padding:9px 26px;
+  border-radius:999px;
+  transition:background .3s,color .3s;
+}
+.inquire:hover{background:var(--navy);color:#fff}
+.burger{display:flex;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:34px;height:2px;background:var(--navy);transition:.3s}
+.mainnav{display:flex;gap:clamp(18px,2.6vw,38px);font-family:var(--font-serif);font-weight:600;font-size:15px;letter-spacing:.18em;color:var(--navy)}
+.mainnav a{position:relative;padding:4px 0}
+.mainnav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--navy);transition:width .3s}
+.mainnav a:hover::after,.mainnav a.on::after{width:100%}
+#mob{display:none;flex-direction:column;gap:14px;padding:18px clamp(20px,4vw,64px);border-top:1px solid #eceef2;background:#fff;position:sticky;top:82px;z-index:49}
+#mob.open{display:flex}
+#mob a{font-family:var(--font-serif);font-weight:600;letter-spacing:.18em;color:var(--navy);font-size:16px}
+@media(max-width:860px){.mainnav{display:none}}
+
+/* ── HERO ── */
+.hero{width:100%}
+.hero img{width:100%;height:auto;object-fit:cover}
+
+/* ── SECTION HEADING ── */
+.sec-head{
+  text-align:center;
+  margin:clamp(48px,6vw,86px) auto clamp(30px,4vw,48px);
+  max-width:var(--maxw);
+  padding:0 20px;
+}
+.sec-head .row{
+  display:flex;align-items:center;justify-content:center;gap:26px;
+}
+.sec-head .row::before,
+.sec-head .row::after{
+  content:"";height:1px;width:clamp(70px,12vw,190px);background:var(--navy);opacity:.55;
+}
+.sec-head h2{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(22px,3vw,32px);
+  letter-spacing:0.22em;
+  color:var(--navy);
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.sec-head p{
+  margin-top:8px;
+  font-family:var(--font-serif);
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  color:var(--navy);
+  opacity:.85;
+}
+
+/* ── HOT COLLECTION GALLERY ── */
+.gallery{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 clamp(14px,2.4vw,34px) clamp(20px,3vw,40px);
+  display:grid;
+  grid-template-columns:1.72fr 1fr 1.02fr;
+  grid-template-rows:1.72fr 1fr;
+  height:min(46vw,700px);
+  gap:16px;
+  align-items:stretch;
+}
+.gallery .cell{overflow:hidden;border-radius:10px}
+.gallery .cell img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.gallery .cell:hover img{transform:scale(1.04)}
+
+.g-choice{grid-row:1/3}
+.g-right{grid-row:1/3}
+.g-mid{display:grid;grid-template-rows:subgrid;gap:16px;grid-row:1/3}
+@supports not (grid-template-rows:subgrid){.g-mid{grid-template-rows:1.72fr 1fr}}
+.g-mid-bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g-mid .cell,.g-mid-bottom .cell{height:100%}
+
+/* ── COLLECTIONS ── */
+.collections{max-width:var(--maxw);margin:0 auto;padding:0 clamp(14px,2.4vw,34px) clamp(30px,4vw,50px);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.coll{position:relative;overflow:hidden;border-radius:10px;display:block;aspect-ratio:16/9}
+.coll img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.coll:hover img{transform:scale(1.05)}
+.coll-body{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;background:linear-gradient(180deg,rgba(38,50,78,.15),rgba(38,50,78,.72))}
+.coll-body b{font-family:var(--font-display);font-size:clamp(34px,4.6vw,62px);font-weight:700;letter-spacing:.06em;line-height:1}
+.coll-body i{font-style:normal;font-size:14px;letter-spacing:.3em;text-transform:uppercase;opacity:.9}
+.coll-body em{font-style:normal;margin-top:12px;font-size:14px;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:3px}
+@media(max-width:700px){.collections{grid-template-columns:1fr}}
+
+/* ── STYLE BANNER ── */
+.style-banner{width:100%;margin-top:clamp(20px,3vw,34px)}
+.style-banner img{width:100%;height:auto}
+
+/* ── TRENDING PRODUCTS ── */
+.products{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 clamp(14px,2.4vw,34px) clamp(40px,5vw,70px);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.product{overflow:hidden;border-radius:8px}
+.product img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.product:hover img{transform:scale(1.04)}
+
+/* ── FOOTER ── */
+.footer{
+  border-top:1px solid #eceef2;
+  padding:clamp(40px,5vw,70px) clamp(20px,4vw,64px) 0;
+}
+.foot-grid{
+  max-width:var(--maxw);margin:0 auto;
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1.2fr 1.5fr;
+  gap:clamp(24px,4vw,64px);
+  align-items:start;
+}
+.foot-logo{
+  line-height:0;
+}
+.foot-logo img{
+  height:clamp(44px,4.4vw,64px);
+  width:auto;
+}
+.foot-col h4{
+  font-family:var(--font-serif);
+  font-weight:700;
+  font-size:16px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--navy);
+  margin-bottom:16px;
+}
+.foot-col ul{list-style:none;display:grid;gap:11px}
+.foot-col a{
+  font-family:var(--font-serif);
+  font-size:16px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--ink);
+  position:relative;width:fit-content;
+}
+.foot-col a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--navy);transition:width .3s}
+.foot-col a:hover::after{width:100%}
+
+.news .field{
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid var(--navy);
+  padding-bottom:8px;margin-bottom:18px;
+}
+.news input{
+  flex:1;border:none;background:none;outline:none;
+  font-family:var(--font-serif);font-style:italic;
+  font-size:16px;letter-spacing:0.06em;color:var(--ink);
+}
+.news input::placeholder{color:#8b93a3}
+.news .field button{
+  background:none;border:none;cursor:pointer;
+  font-size:20px;color:var(--navy);transition:transform .3s;
+}
+.news .field button:hover{transform:translateX(5px)}
+.news .social{display:flex;gap:34px}
+.news .social a{
+  font-family:var(--font-serif);font-weight:600;
+  font-size:15px;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);
+}
+
+.pay-row{
+  max-width:var(--maxw);margin:clamp(32px,4vw,52px) auto 0;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding-bottom:18px;
+}
+.pay{
+  height:26px;padding:0 8px;min-width:40px;
+  display:grid;place-items:center;
+  border:1px solid #e4e7ec;border-radius:5px;
+  font-family:Arial,Helvetica,sans-serif;font-weight:800;
+  font-size:8.5px;letter-spacing:.02em;color:#5a6172;background:#fff;
+}
+.copyright{
+  border-top:1px solid #eceef2;
+  padding:16px 0 22px;text-align:center;
+  font-family:var(--font-serif);
+  font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#7c8395;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(220px,1fr);height:auto}
+  .g-mid{grid-template-rows:auto auto!important}
+  .g-choice{grid-row:auto;grid-column:1/-1}
+  .g-mid{grid-row:auto}
+  .g-right{grid-row:auto}
+  .products{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .news{grid-column:1/-1}
+}
+@media(max-width:560px){
+  .gallery{grid-template-columns:1fr}
+  .g-mid-bottom{grid-template-columns:1fr 1fr}
+  .products{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .inquire{padding:8px 18px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a class="logo" href="#" aria-label="ADAB home"><img src="assets/home/adab-logo.png" alt="ADAB"></a>
+  <nav class="mainnav">
+    <a href="index.html" class="on">HOME</a>
+    <a href="a-1.html">A-1</a>
+    <a href="t-1.html">T-1</a>
+  </nav>
+  <div class="nav-right">
+    <a class="inquire" href="#">INQUIRE</a>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('mob').classList.toggle('open')"><span></span><span></span></button>
+  </div>
+</header>
+
+<div id="mob">
+  <a href="index.html">HOME</a>
+  <a href="a-1.html">A-1 COLLECTION</a>
+  <a href="t-1.html">T-1 COLLECTION</a>
+  <a href="#">INQUIRE</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="assets/home/hero.jpg" alt="ADAB — A-1 Incoming. Man in ivory embroidered sherwani.">
+</section>
+
+<!-- HOT COLLECTION -->
+<div class="sec-head">
+  <div class="row"><h2>Hot Collection</h2></div>
+  <p>Explore Styles</p>
+</div>
+
+<section class="gallery">
+  <div class="cell g-choice"><img src="assets/home/gal-choice.jpg" alt="Perfect choice of attire"></div>
+
+  <div class="g-mid">
+    <div class="cell"><img src="assets/home/gal-cream.jpg" alt="Ivory kurta"></div>
+    <div class="g-mid-bottom">
+      <div class="cell"><img src="assets/home/gal-teal.jpg" alt="Teal ensemble"></div>
+      <div class="cell"><img src="assets/home/gal-brown.jpg" alt="Brown kurta"></div>
+    </div>
+  </div>
+
+  <div class="cell g-right"><img src="assets/home/gal-green.jpg" alt="Sage green kurta"></div>
+</section>
+
+<!-- COLLECTIONS -->
+<div class="sec-head">
+  <div class="row"><h2>Our Collections</h2></div>
+  <p>Two Lines, One House</p>
+</div>
+<section class="collections">
+  <a class="coll" href="a-1.html">
+    <img src="assets/home/gal-cream.jpg" alt="A-1 Collection">
+    <span class="coll-body"><b>A-1</b><i>Signature Line</i><em>View Collection &#8594;</em></span>
+  </a>
+  <a class="coll" href="t-1.html">
+    <img src="assets/home/gal-brown.jpg" alt="T-1 Collection">
+    <span class="coll-body"><b>T-1</b><i>Afridi Wear</i><em>View Collection &#8594;</em></span>
+  </a>
+</section>
+
+<!-- STYLE BANNER -->
+<a class="style-banner" href="a-1.html">
+  <img src="assets/home/style-banner.jpg" alt="ADAB A-1 — new collection incoming">
+</a>
+
+<!-- TRENDING PRODUCTS -->
+<div class="sec-head">
+  <div class="row"><h2>Trending Products</h2></div>
+  <p>Shop Our Mood Lifters</p>
+</div>
+
+<section class="products">
+  <a class="product" href="#"><img src="assets/home/prod-kameez.jpg" alt="Kameez Shalwar"></a>
+  <a class="product" href="#"><img src="assets/home/prod-kurta.jpg" alt="Kurta Pajama"></a>
+  <a class="product" href="#"><img src="assets/home/prod-waist.jpg" alt="Waistcoats"></a>
+  <a class="product" href="#"><img src="assets/home/prod-blazer.jpg" alt="Eastern Blazers"></a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="foot-grid">
+    <div><div class="foot-logo"><img src="assets/home/adab-logo.png" alt="ADAB"></div></div>
+
+    <div class="foot-col">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="a-1.html">A-1 Collection</a></li>
+        <li><a href="t-1.html">T-1 Collection</a></li>
+        <li><a href="#">Inquire</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <ul>
+        <li><a href="#">Shipping &amp; Returns</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col news">
+      <h4>Stay Updated</h4>
+      <div class="field">
+        <input type="email" placeholder="Enter your email">
+        <button type="button" aria-label="Subscribe">&#8594;</button>
+      </div>
+      <div class="social">
+        <a href="#">Instagram</a>
+        <a href="#">Youtube</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pay-row">
+    <span class="pay">AMEX</span>
+    <span class="pay">APPLE</span>
+    <span class="pay">DISC</span>
+    <span class="pay">GPAY</span>
+    <span class="pay">JCB</span>
+    <span class="pay">MC</span>
+    <span class="pay">PAYPAL</span>
+    <span class="pay">VISA</span>
+  </div>
+
+  <p class="copyright">&copy; 2026 ADAB.COM All Rights Reserved &nbsp;|&nbsp; orders@adab.com &nbsp;|&nbsp; +92 130 156086012</p>
+</footer>
+
+</body>
+</html>
